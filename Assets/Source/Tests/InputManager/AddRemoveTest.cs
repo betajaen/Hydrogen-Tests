@@ -42,11 +42,17 @@ public class AddRemoveTest : Test
     PrepareResult("F2 Unbinding (Press F2 - To test for AnAction)");
     SetResult("F2 Unbinding (Press F2 - To test for AnAction)", Outcome.ExpectingPassed);
     hInputManager.RemoveControl("F2");
+
+    PrepareResult("Removing AnAction");
+    SetResult("Removing AnAction", hInputManager.RemoveAction("AnAction", true));
+    SetResult("Removing AnAction", Outcome.ExpectingPassed);
+
   }
 
   private void OnAnAction(hInputEvent evt, float value, float time)
   {
     SetResult("F2 Unbinding (Press F2 - To test for AnAction)", Input.GetKey(KeyCode.F2));
+    SetResult("Removing AnAction", Input.GetKey(KeyCode.F2));
   }
 
 }
