@@ -28,43 +28,25 @@
 using System;
 using UnityEngine;
 
-public class DeltaAxisTest : Test
+public class AddRemoveTest : Test
 {
-
-  private float mx, my;
 
   public void Start()
   {
-    PrepareResult("Mouse X");
-    PrepareResult("Mouse X Action");
-    SetResult("Mouse X Action", hInputManager.AddAction("MouseXMovement", OnMouseXMoved));
+    PrepareResult("AnAction");
+    SetResult("AnAction", hInputManager.AddAction("AnAction", OnAnAction));
 
-    PrepareResult("Mouse X Binding");
-    SetResult("Mouse X Binding", hInputManager.AddControl("Mouse X", "MouseXMovement"));
+    PrepareResult("F2 Binding");
+    SetResult("F2 Binding", hInputManager.AddControl("F2", "AnAction"));
 
-    PrepareResult("Mouse Y");
-    PrepareResult("Mouse Y Action");
-    SetResult("Mouse Y Action", hInputManager.AddAction("MouseYMovement", OnMouseYMoved));
-
-    PrepareResult("Mouse Y Binding");
-    SetResult("Mouse Y Binding", hInputManager.AddControl("Mouse Y", "MouseYMovement"));
-
+    PrepareResult("F2 Unbinding (Press F2 - To test for AnAction)");
+    SetResult("F2 Unbinding (Press F2 - To test for AnAction)", Outcome.ExpectingPassed);
+    hInputManager.RemoveControl("F2");
   }
 
-  public void Update()
+  private void OnAnAction(hInputEvent evt, float value, float time)
   {
-    mx = Input.GetAxis("Mouse X");
-    my = Input.GetAxis("Mouse Y");
-  }
-
-  private void OnMouseXMoved(hInputEvent evt, float value, float time)
-  {
-    SetResult("Mouse X", Mathf.Abs(value - mx) < Mathf.Epsilon);
-  }
-
-  private void OnMouseYMoved(hInputEvent evt, float value, float time)
-  {
-    SetResult("Mouse Y", Mathf.Abs(value - my) < Mathf.Epsilon);
+    SetResult("F2 Unbinding (Press F2 - To test for AnAction)", Input.GetKey(KeyCode.F2));
   }
 
 }

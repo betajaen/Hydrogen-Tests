@@ -13,13 +13,13 @@ public class ExampleInput : MonoBehaviour
     hInputManager.AddAction("Rotate", OnRotate);
     hInputManager.AddAction("Shoot", OnShoot);
 
-    hInputManager.AddBind("Mouse X", "Rotate");
+    hInputManager.AddControl("Mouse X", "Rotate");
 
-    hInputManager.AddBind("Horizontal", "Turn");
-    hInputManager.AddBind("Vertical", "Move");
+    hInputManager.AddControl("Horizontal", "Turn");
+    hInputManager.AddControl("Vertical", "Move");
 
-    hInputManager.AddBind("Left", "Shoot");
-    hInputManager.AddBind("Space", "Shoot");
+    hInputManager.AddControl("Left", "Shoot");
+    hInputManager.AddControl("Space", "Shoot");
 
     turret = GameObject.Find("Turret");
     muzzle = GameObject.Find("Muzzle");
@@ -38,7 +38,7 @@ public class ExampleInput : MonoBehaviour
     if (evt == hInputEvent.Released)
     {
       GameObject shell = Instantiate(ammo, muzzle.transform.position, Quaternion.identity) as GameObject;
-      shell.rigidbody.velocity = turret.transform.rotation * Vector3.forward * 10.0f;
+      shell.rigidbody.velocity = turret.transform.rotation * Vector3.forward * 10.0f * (time * time + 0.1f);
     }
   }
 

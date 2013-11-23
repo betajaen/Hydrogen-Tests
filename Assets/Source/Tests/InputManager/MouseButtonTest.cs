@@ -49,7 +49,7 @@ public class MouseButtonTest : Test
     SetResult("Shoot Action", hInputManager.AddAction("Shoot", OnShoot));
 
     PrepareResult("Shoot (Left) Binding");
-    SetResult("Shoot (Left) Binding", hInputManager.AddBind("Left", "Shoot"));
+    SetResult("Shoot (Left) Binding", hInputManager.AddControl("Left", "Shoot"));
 
   }
 

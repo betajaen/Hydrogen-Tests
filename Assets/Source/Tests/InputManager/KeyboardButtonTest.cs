@@ -58,10 +58,10 @@ public class KeyboardButtonTest : Test
     SetResult("Run Action", hInputManager.AddAction("Run", OnRun));
 
     PrepareResult("Run (W) Binding");
-    SetResult("Run (W) Binding", hInputManager.AddBind("W", "Run"));
+    SetResult("Run (W) Binding", hInputManager.AddControl("W", "Run"));
 
     PrepareResult("Run (UpArrow) Binding");
-    SetResult("Run (UpArrow) Binding", hInputManager.AddBind("UpArrow", "Run"));
+    SetResult("Run (UpArrow) Binding", hInputManager.AddControl("UpArrow", "Run"));
 
 
     PrepareResult("Use");
@@ -69,7 +69,7 @@ public class KeyboardButtonTest : Test
     SetResult("Use Action", hInputManager.AddAction("Use", OnUse));
 
     PrepareResult("Use (E) Binding");
-    SetResult("Use (E) Binding", hInputManager.AddBind("E", "Use"));
+    SetResult("Use (E) Binding", hInputManager.AddControl("E", "Use"));
   }
 
   public void Update()

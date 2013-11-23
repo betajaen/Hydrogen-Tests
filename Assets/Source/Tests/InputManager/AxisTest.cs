@@ -40,14 +40,14 @@ public class AxisTest : Test
     SetResult("Horizontal Action", hInputManager.AddAction("HorizontalMovement", OnHorizontalMoved));
 
     PrepareResult("Horizontal Binding");
-    SetResult("Horizontal Binding", hInputManager.AddBind("Horizontal", "HorizontalMovement"));
+    SetResult("Horizontal Binding", hInputManager.AddControl("Horizontal", "HorizontalMovement"));
 
     PrepareResult("Vertical");
     PrepareResult("Vertical Action");
     SetResult("Vertical Action", hInputManager.AddAction("VerticalMovement", OnVerticalMoved));
 
     PrepareResult("Vertical Binding");
-    SetResult("Vertical Binding", hInputManager.AddBind("Vertical", "VerticalMovement"));
+    SetResult("Vertical Binding", hInputManager.AddControl("Vertical", "VerticalMovement"));
 
   }
 

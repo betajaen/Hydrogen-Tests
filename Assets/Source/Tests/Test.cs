@@ -35,7 +35,8 @@ public class Test : MonoBehaviour
   {
     NotTested,
     Passed,
-    Failed
+    Failed,
+    ExpectingPassed
   }
 
   public class Result
